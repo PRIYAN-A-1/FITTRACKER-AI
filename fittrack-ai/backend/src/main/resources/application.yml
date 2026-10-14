@@ -8,6 +8,8 @@ spring:
       max-file-size: 8MB
       max-request-size: 9MB
 server:
+  address: ${SERVER_ADDRESS:0.0.0.0}
+  port: ${PORT:8080}
   error:
     include-message: never
     include-stacktrace: never
