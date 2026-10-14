@@ -1,24 +1,32 @@
-# FitTrack AI — Render deployment
+# Render deployment checklist
 
-For a Render Web Service, configure the service to build from the repository root `Dockerfile` (or set the Dockerfile path to `fittrack-ai/backend/Dockerfile`). The application listens on Render's `PORT` automatically and binds to `0.0.0.0`.
+The logs showing `Connection to localhost:5432 refused` are from a deployment where `DATABASE_URL` was not available to the running container, so Spring used its local-development fallback.
 
-## Required environment variables
+## Render Web Service settings
 
-Set these in the Render service's Environment page; do not commit their values:
+1. Deploy the current `main` branch after commit `444018a999a8d9844695b2e09b9e6fdf18c97f67`.
+2. Use the repository root `Dockerfile`, or set the Dockerfile path to `fittrack-ai/backend/Dockerfile`.
+3. Create or select a Render PostgreSQL database in the same region as the web service.
+4. Add this environment variable to the **web service**:
 
-- `DATABASE_URL`: the Render PostgreSQL **internal connection URL**. The application accepts either Render's `postgresql://...`/`postgres://...` URL or a JDBC URL. Do not use `localhost` in production.
-- `DATABASE_USER`: optional when the username is included in `DATABASE_URL`.
-- `DATABASE_PASSWORD`: optional when the password is included in `DATABASE_URL`; set it if your Render database exposes credentials separately.
-- `JWT_SECRET`: a randomly generated secret of at least 32 bytes.
-- `CATALOG_PATH`: set to the path of the catalog available inside the image, if different from the default.
-- `MODEL_SERVICE_URL` and `MODEL_SERVICE_TOKEN`: required if photo analysis is enabled and the model service is deployed separately.
+   `DATABASE_URL` = the database's **Internal Database URL** / connection string.
 
-Example local-only values:
+   It must look like `postgresql://user:password@host:5432/database` (or `postgres://...`). Never set it to `localhost`.
+5. Add `JWT_SECRET` with a randomly generated value of at least 32 bytes.
+6. Add `DATABASE_USER` and `DATABASE_PASSWORD` only if they are not already embedded in `DATABASE_URL`.
+7. Leave `PORT` managed by Render. The application binds to `${PORT:8080}` on `0.0.0.0`.
+8. Redeploy with **Clear build cache & deploy** if the service still shows logs from the pre-fix image.
 
-```dotenv
-DATABASE_URL=jdbc:postgresql://localhost:5432/fittrack
-DATABASE_USER=fittrack
-DATABASE_PASSWORD=local-password
+The application converts Render's `postgresql://`/`postgres://` connection string to JDBC before Hikari/Flyway starts. Flyway remains enabled and will run migrations against the configured Render database.
+
+Render can wire the value automatically in a Blueprint with:
+
+```yaml
+envVars:
+  - key: DATABASE_URL
+    fromDatabase:
+      name: fittrack-db
+      property: connectionString
 ```
 
-The startup failure `Connection to localhost:5432 refused` means the deployed service did not receive a production database URL and fell back to the local-development default. After adding `DATABASE_URL`, redeploy so Flyway can connect and run migrations.
+If you already have a database, use its actual Render database name rather than creating another one. Do not commit a real connection string or secret.
