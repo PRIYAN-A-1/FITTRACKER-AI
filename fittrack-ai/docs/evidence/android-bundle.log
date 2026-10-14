@@ -1,0 +1,54 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+Starting Metro Bundler
+
+Android node_modules/expo-router/entry.js ░░░░░░░░░░░░░░░░  0.0% (0/1)
+| (node:67) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+| (Use `node --trace-warnings ...` to show where the warning was created)
+| (node:67) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+| (Use `node --trace-warnings ...` to show where the warning was created)
+| (node:67) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+| (Use `node --trace-warnings ...` to show where the warning was created)
+| (node:67) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+| (Use `node --trace-warnings ...` to show where the warning was created)
+| (node:67) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+| (Use `node --trace-warnings ...` to show where the warning was created)
+| (node:67) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+| (Use `node --trace-warnings ...` to show where the warning was created)
+Android node_modules/expo-router/entry.js ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░ 99.9% (1112/1112)
+Android Bundled 5592ms node_modules/expo-router/entry.js (1112 modules)
+
+› Assets (38):
+node_modules/@expo-google-fonts/material-symbols/100Thin_Filled/MaterialSymbols_100Thin_Filled.ttf (1.5MB)
+node_modules/@expo-google-fonts/material-symbols/100Thin/MaterialSymbols_100Thin.ttf (999KB)
+node_modules/@expo-google-fonts/material-symbols/200ExtraLight_Filled/MaterialSymbols_200ExtraLight_Filled.ttf (1.5MB)
+node_modules/@expo-google-fonts/material-symbols/200ExtraLight/MaterialSymbols_200ExtraLight.ttf (1MB)
+node_modules/@expo-google-fonts/material-symbols/300Light_Filled/MaterialSymbols_300Light_Filled.ttf (1.5MB)
+node_modules/@expo-google-fonts/material-symbols/300Light/MaterialSymbols_300Light.ttf (1MB)
+node_modules/@expo-google-fonts/material-symbols/400Regular_Filled/MaterialSymbols_400Regular_Filled.ttf (1.4MB)
+node_modules/@expo-google-fonts/material-symbols/400Regular/MaterialSymbols_400Regular.ttf (971KB)
+node_modules/@expo-google-fonts/material-symbols/500Medium_Filled/MaterialSymbols_500Medium_Filled.ttf (1.4MB)
+node_modules/@expo-google-fonts/material-symbols/500Medium/MaterialSymbols_500Medium.ttf (972KB)
+node_modules/@expo-google-fonts/material-symbols/600SemiBold_Filled/MaterialSymbols_600SemiBold_Filled.ttf (1.4MB)
+node_modules/@expo-google-fonts/material-symbols/600SemiBold/MaterialSymbols_600SemiBold.ttf (973KB)
+node_modules/@expo-google-fonts/material-symbols/700Bold_Filled/MaterialSymbols_700Bold_Filled.ttf (1.4MB)
+node_modules/@expo-google-fonts/material-symbols/700Bold/MaterialSymbols_700Bold.ttf (972KB)
+node_modules/@react-navigation/elements/lib/module/assets/back-icon-mask.png (653B)
+node_modules/@react-navigation/elements/lib/module/assets/back-icon.png (4 variations | 152B)
+node_modules/@react-navigation/elements/lib/module/assets/clear-icon.png (4 variations | 425B)
+node_modules/@react-navigation/elements/lib/module/assets/close-icon.png (4 variations | 235B)
+node_modules/@react-navigation/elements/lib/module/assets/search-icon.png (4 variations | 599B)
+node_modules/expo-router/assets/arrow_down.png (9.5KB)
+node_modules/expo-router/assets/error.png (469B)
+node_modules/expo-router/assets/file.png (138B)
+node_modules/expo-router/assets/forward.png (188B)
+node_modules/expo-router/assets/pkg.png (364B)
+node_modules/expo-router/assets/sitemap.png (465B)
+node_modules/expo-router/assets/unmatched.png (4.8KB)
+
+› android bundles (1):
+_expo/static/js/android/entry-03f555ecfe79f26557cc61dd205a29bf.hbc (2.9MB)
+
+› Files (1):
+metadata.json (2.5KB)
+
+Exported: /workspace/scratch/3d14b714c01e/.runtime/android-final

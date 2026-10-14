@@ -1,0 +1,35 @@
+{
+  "expo": {
+    "name": "FitTrack",
+    "slug": "fittrack-ai",
+    "version": "0.3.0",
+    "scheme": "fittrack",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "android": {
+      "package": "dev.priyan.fittrack",
+      "versionCode": 3,
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#245C40"
+      },
+      "permissions": [
+        "CAMERA"
+      ]
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      "expo-sqlite",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Choose a meal photo to analyze.",
+          "cameraPermission": "Take a meal photo to analyze.",
+          "microphonePermission": false
+        }
+      ]
+    ],
+    "icon": "./assets/icon.png"
+  }
+}

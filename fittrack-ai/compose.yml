@@ -1,0 +1,38 @@
+services:
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: fittrack
+      POSTGRES_USER: fittrack
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD:?Run python scripts/bootstrap.py}
+    volumes: ["pgdata:/var/lib/postgresql/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U fittrack"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+  vision:
+    build: ./ml
+    environment:
+      MODEL_SERVICE_TOKEN: ${MODEL_SERVICE_TOKEN:?Run python scripts/bootstrap.py}
+    # Private service: no host port is published.
+    restart: unless-stopped
+  api:
+    build: ./backend
+    ports: ["127.0.0.1:8080:8080"]
+    environment:
+      DATABASE_URL: jdbc:postgresql://db:5432/fittrack
+      DATABASE_USER: fittrack
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD:?Run bootstrap}
+      JWT_SECRET: ${JWT_SECRET:?Run bootstrap}
+      MODEL_SERVICE_URL: http://vision:8090
+      MODEL_SERVICE_TOKEN: ${MODEL_SERVICE_TOKEN:?Run bootstrap}
+      CATALOG_PATH: /data/catalog.jsonl
+    volumes: ["./data:/data:ro"]
+    depends_on:
+      db:
+        condition: service_healthy
+      vision:
+        condition: service_started
+volumes:
+  pgdata:

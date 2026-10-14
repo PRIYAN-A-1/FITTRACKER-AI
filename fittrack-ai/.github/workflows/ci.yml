@@ -1,0 +1,60 @@
+name: FitTrack checks
+on: [push, pull_request]
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_DB: fittrack
+          POSTGRES_USER: fittrack
+          POSTGRES_PASSWORD: ci-only-disposable
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U fittrack"
+          --health-interval 5s --health-timeout 3s --health-retries 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: apps/android/package-lock.json
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r ml/runtime-requirements.txt
+      - run: python -m unittest discover -s tests -v
+      - run: mvn -B -f backend/pom.xml verify
+      - run: npm ci && npm run typecheck && npm test
+        working-directory: apps/android
+      - run: npx expo export --platform android
+        working-directory: apps/android
+        env:
+          EXPO_PUBLIC_API_URL: https://api.example.invalid
+      - name: PostgreSQL API integration
+        env:
+          DATABASE_URL: jdbc:postgresql://localhost:5432/fittrack
+          DATABASE_PASSWORD: ci-only-disposable
+          JWT_SECRET: ci-only-disposable-test-key-at-least-32-bytes-long
+          CATALOG_PATH: data/catalog.jsonl
+          MODEL_SERVICE_URL: http://127.0.0.1:8090
+          MODEL_SERVICE_TOKEN: ci-only-model-service-key-at-least-32-bytes
+        run: |
+          python -m ml.download_baseline
+          python -m ml.serve > model.log 2>&1 &
+          MODEL_PID=$!
+          java -jar backend/target/fittrack-api-0.3.0.jar > api.log 2>&1 &
+          API_PID=$!
+          trap 'kill "$API_PID" "$MODEL_PID"' EXIT
+          for attempt in $(seq 1 60); do
+            curl -fsS http://localhost:8080/actuator/health/readiness && break
+            sleep 2
+          done
+          python scripts/integration.py

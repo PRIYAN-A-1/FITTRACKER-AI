@@ -1,0 +1,20 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> fittrack-android@0.3.0 test
+> node --import tsx --test tests/*.test.ts
+
+✔ 503 refresh does not erase session (3.220363ms)
+✔ 401 refresh clears invalid session (0.535839ms)
+✔ logout refreshes expired access (2.576446ms)
+✔ concurrent expired requests share one refresh (23.053542ms)
+✔ response from old account is rejected (0.803166ms)
+✔ refresh cannot restore a signed-out account (0.837973ms)
+✔ network failure is retryable and preserves session (0.76758ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 238.610492

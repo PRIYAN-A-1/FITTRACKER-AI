@@ -1,0 +1,31 @@
+{
+  "modelVersion": "food101-swin-q4-e5e50bf",
+  "modelKind": "pretrained-baseline",
+  "candidates": [
+    {
+      "label": "pizza",
+      "score": 0.9993689656257629
+    },
+    {
+      "label": "bruschetta",
+      "score": 0.00018419635307509452
+    },
+    {
+      "label": "beef_carpaccio",
+      "score": 0.00011197001731488854
+    },
+    {
+      "label": "lasagna",
+      "score": 5.1616079872474074e-05
+    },
+    {
+      "label": "chicken_quesadilla",
+      "score": 4.655916563933715e-05
+    }
+  ],
+  "unknown": false,
+  "processingMs": 1095,
+  "portionMethod": "user-entered measured grams",
+  "scoreMeaning": "Suggestions require review. Scores are not calibrated confidence; portions and hidden ingredients are not inferred.",
+  "coverage": "Food-101 classes; broad Indian meal recognition is not established."
+}

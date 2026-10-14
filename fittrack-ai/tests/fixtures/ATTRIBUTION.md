@@ -1,0 +1,1 @@
+Supreme pizza photo: Scott Bauer, USDA Agricultural Research Service. Public domain. Source: https://commons.wikimedia.org/wiki/File:Supreme_pizza.jpg . Used as a smoke-test fixture only, not as a training dataset or a claim of benchmark accuracy.

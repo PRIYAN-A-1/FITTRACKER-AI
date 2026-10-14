@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/fittrack}
+    username: ${DATABASE_USER:fittrack}
+    password: ${DATABASE_PASSWORD}
+  servlet:
+    multipart:
+      max-file-size: 8MB
+      max-request-size: 9MB
+server:
+  error:
+    include-message: never
+    include-stacktrace: never
+fittrack:
+  jwt-secret: ${JWT_SECRET}
+  catalog: ${CATALOG_PATH:../data/catalog.jsonl}
+management:
+  endpoint:
+    health:
+      probes:
+        enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health

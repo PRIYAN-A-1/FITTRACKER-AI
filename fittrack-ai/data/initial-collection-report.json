@@ -1,0 +1,10 @@
+{
+  "source": "Open Food Facts",
+  "query": "idli",
+  "downloaded": 100,
+  "accepted": 66,
+  "rejected": 34,
+  "raw_sha256": "79ccdde000e142e781caed8d8a7c61e67557adb0a2fa0526825500b5a8a7a800",
+  "url": "https://world.openfoodfacts.org/cgi/search.pl?search_terms=idli&search_simple=1&action=process&json=1&page_size=100",
+  "training_images": 0
+}

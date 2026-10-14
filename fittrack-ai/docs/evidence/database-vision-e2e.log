@@ -1,0 +1,20 @@
+PASS: real catalog imported and searchable
+PASS: nanosecond timestamp and duplicate replay
+PASS: conflicting request key rejected
+PASS: foreign user cannot read or delete meals
+PASS: local midnight diary grouping
+PASS: versioned meal edit
+PASS: stale edit rejected
+PASS: creation retry does not undo a later edit
+PASS: invalid timezone yields 400
+PASS: profile update persists
+PASS: goals preserve unknown values
+PASS: goals are owner scoped
+PASS: seven-day report
+PASS: recipe calculation uses source data
+PASS: blank image is rejected as uncertain by real pretrained baseline
+PASS: actual food photo recognized through Java and private ONNX service
+PASS: corrupt image rejected
+PASS: export includes stored goals and replay history
+PASS: delete clears replay data and prevents resurrection
+TOTAL PASSED: 19

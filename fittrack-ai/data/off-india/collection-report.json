@@ -1,0 +1,14 @@
+{
+  "collected_at": "2026-10-13T15:32:58.776017+00:00",
+  "accepted_unique": 0,
+  "rejected": 0,
+  "errors": [
+    {
+      "page": 1,
+      "error": "HTTPError",
+      "detail": "HTTP Error 503: Service Temporarily Unavailable"
+    }
+  ],
+  "evidence": [],
+  "training_images": 0
+}

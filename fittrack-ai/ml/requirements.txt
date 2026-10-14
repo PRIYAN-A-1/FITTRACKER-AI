@@ -1,0 +1,6 @@
+# Install CPU/GPU-specific torch/torchvision wheels using the official PyTorch selector.
+# No training runtime was installed or executed in the delivery environment.
+Pillow>=11.3,<13
+numpy>=2,<3
+torch>=2.6,<3
+torchvision>=0.21,<1

@@ -1,0 +1,21 @@
+test_liquid_rejected (test_data.CatalogTests.test_liquid_rejected) ... ok
+test_missing_name (test_data.CatalogTests.test_missing_name) ... ok
+test_nan_rejected (test_data.CatalogTests.test_nan_rejected) ... ok
+test_no_measurements (test_data.CatalogTests.test_no_measurements) ... ok
+test_provenance (test_data.CatalogTests.test_provenance) ... ok
+test_unknown_not_zero (test_data.CatalogTests.test_unknown_not_zero) ... ok
+test_zero_preserved (test_data.CatalogTests.test_zero_preserved) ... ok
+test_duplicate_bridges_sessions (test_ml.MLTests.test_duplicate_bridges_sessions) ... ok
+test_duplicates_and_grouping (test_ml.MLTests.test_duplicates_and_grouping) ... ok
+test_invalid_probabilities (test_ml.MLTests.test_invalid_probabilities) ... ok
+test_metrics (test_ml.MLTests.test_metrics) ... ok
+test_unlicensed_rejected (test_ml.MLTests.test_unlicensed_rejected) ... ok
+test_empty_rejected (test_service.ServiceTests.test_empty_rejected) ... ok
+test_invalid_image (test_service.ServiceTests.test_invalid_image) ... ok
+test_missing_model_not_fake (test_service.ServiceTests.test_missing_model_not_fake) ... ok
+test_valid_png (test_service.ServiceTests.test_valid_png) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.043s
+
+OK

@@ -1,0 +1,3 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+Dependency validation is unreliable in offline-mode
+Dependencies are up to date
