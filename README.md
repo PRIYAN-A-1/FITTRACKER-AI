@@ -698,3 +698,4 @@ Choose and add an explicit project license before distributing the source code. 
   <img src="https://capsule-render.vercel.app/api?type=waving&color=0:22C55E,100:0F172A&height=120&section=footer" width="100%" alt="Decorative green animated-style footer" />
   <strong>🥗 FitTrack AI — Make Every Meal More Informed.</strong>
 </p>
+# fi
